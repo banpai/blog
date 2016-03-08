@@ -10,10 +10,10 @@ export default {
   adapter: {
     mysql: {
       host: '127.0.0.1',
-      port: '',
-      database: '',
-      user: '',
-      password: '',
+      port: '3307',
+      database: 'blog',
+      user: 'root',
+      password: 'root',
       prefix: 'think_',
       encoding: 'utf8'
     },

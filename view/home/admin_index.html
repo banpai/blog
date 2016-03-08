@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title><%= title%></title>
+  <script src="//cdn.bootcss.com/marked/0.3.5/marked.js"></script>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/avalon.js/1.5.5/avalon.min.js"></script>
+  <script src="static/js/admin.js"></script>
+</head>
+<body style="background:#EAEAEA;">
+<div>
+  <div ms-controller="up">
+    <h1>测试！！！[%test%]</h1>
+    <textarea name="name" rows="8" cols="40" ms-duplex="text"></textarea>
+    <button type="button" name="button" ms-click="dd">上传</button>
+  </div>
+</div>
+<%include inc/footer.html%>

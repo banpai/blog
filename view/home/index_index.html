@@ -1,48 +1,78 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>New ThinkJS Application</title>
-<style>
-*{padding: 0;margin: 0;font-size: 16px;line-height: 20px;font-family: arial;}
-a, a:visited{color:#337ab7;text-decoration: none;}
-header{padding: 70px 0 70px 0;background-color: #4A6495}
-h1{font-size: 36px;color:#fff;font-weight: normal;}
-code{  padding: 2px 4px;font-size: 90%;color: #c7254e;background-color: #f9f2f4;border-radius: 4px;}
-.content{width: 1000px;margin: auto}
-.wrap{width: 1000px;margin: auto}
-.content{margin-top: 80px;}
-.list{width: 800px;}
-.list .item{position: relative;padding-left: 70px;margin-top: 50px;}
-.list .item .step{position: absolute;width: 36px;height: 36px;top:-3px;left:0;border: 5px solid #4A6495;border-radius: 23px;text-align: center;line-height: 36px;}
-.list .item h2{font-size: 24px;font-weight: normal;}
-.list .item p{line-height: 30px;margin-top: 10px}
-</style>
-</head>
-<body>
-  <header>
-    <div class="wrap">
-      <h1>A New App Created By ThinkJS</h1>
-    </div>
-  </header>
-  <div class="content">
-    <div class="list">
-      <div class="item">
-        <div class="step">1</div>
-        <h2>Generate Files</h2>
-        <p>Run <code>thinkjs</code> command to create module, controler, model, service and so on. visit <a href="https://thinkjs.org/doc/thinkjs_command.html">https://thinkjs.org/doc/thinkjs_command.html</a> to view more infomation.</p>
-      </div>
-      <div class="item">
-        <div class="step">2</div>
-        <h2>Documatation</h2>
-        <p>ThinkJS has html and pdf documents. visit <a href="https://thinkjs.org/doc.html">https://thinkjs.org/doc.html</a></p>
-      </div>
-      <div class="item">
-        <div class="step">3</div>
-        <h2>WebSocket</h2>
-        <p>ThinkJS support <code>socket.io</code> and <code>sockjs</code> WebSocket client and server node. visit <a href="https://thinkjs.org/doc/adapter_websocket.html">https://thinkjs.org/doc/adapter_websocket.html</a></p>
+<%include inc/top.html%>
+<div class="container-fluid">
+  <div class="row" class="ms-controller" ms-controller="banpai">
+
+    <!--left start-->
+    <div class="col-md-3 col-xs-12 left">
+      <div class="fix">
+        <div class="h_bg"></div>
+        <img src="static/img/慢.jpg" alt="慢" class="img-circle" width="100">
+        <h1>半 拍</h1>
+        <ul>
+          <li ms-click="li_note" ms-attr-class="c_note">笔记</li>
+          <li ms-click="li_essay" ms-attr-class="c_essay">随笔</li>
+          <li ms-click="li_programmer" ms-attr-class="c_programmer">程序师</li>
+          <li ms-click="li_works" ms-attr-class="c_works">作品集</li>
+        </ul>
       </div>
     </div>
+    <!--left end-->
+
+    <!--right start-->
+    <div class="col-xs-12 col-md-9 right" style="background:#EAEAEA;">
+
+      <!--menu start-->
+      <div class="menu m_x" ms-click="o_menu_f">
+        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span><br>
+        <span>目录</span>
+      </div>
+      <div class="o_menu" ms-if="o_menu">
+        <div class="o_line"></div>
+        <ul class="o_li">
+          <div ms-repeat="data_t">
+            <li ms-click="title_xx(el)">[%el.title%]</li><hr>
+          </div>
+        </ul>
+      </div>
+      <div class="menu m_xx">
+        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
+        <span>设置</span>
+      </div>
+      <div class="menu m_xxx" ms-click="text_up">
+        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span><br>
+        <span>上页</span>
+      </div>
+      <div class="menu m_y">
+        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span><br>
+        <span>留言</span>
+      </div>
+      <div class="menu m_yy" ms-click="tm_x">
+        <span ms-attr-class="tm" aria-hidden="true"></span><br>
+        <span>[%tm_s%]</span>
+      </div>
+      <div class="menu m_yyy" ms-click="text_down">
+        <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span><br>
+        <span>下页</span>
+      </div>
+      <!--end menu-->
+
+      <!--text start-->
+      <h2 style="background:#fff;padding:20px;text-align:center;">[%title%]</h2>
+      <p id="bp_p" ms-html="text" style="background:#fff;padding:40px;box-shadow:0 0 15px 0 #CCC;"></p>
+      <div id="bp_dm">
+
+      </div>
+      <div style="background:#fff;padding:20px;">
+        <span class="s_bottom">
+          <button type="button" name="button" style="margin-right: 50px;" ms-click="text_up">上一篇</button>
+          <button type="button" name="button" ms-click="text_down">下一篇</button>
+        </span>
+      </div>
+      <!--text end-->
+
+    </div>
+    <!--right end-->
+
   </div>
-</body>
-</html>
+</div>
+<%include inc/footer.html%>
